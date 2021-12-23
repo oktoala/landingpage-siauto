@@ -3,14 +3,25 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "bookmark-primary" : "#68B116",
+        "bookmark-red": "#FA5959",
+        "bookmark-blue": "#242A45",
+        "bookmark-grey": "#9194A2",
+        "bookmark-white": "#F7F7F7",
+      },
+    },
+    fontFamily: {
+      Poppins: ["Poppins", "sans-serif"],
+    },
     container: {
       center: true,
       padding: "1rem",
       screens: {
-        lg: "1124px",
-        xl: "1124px",
-        "2xl": "1124px"
+        lg: "1024px",
+        xl: "1024px",
+        "2xl": "1024px"
       }
     }
   },
