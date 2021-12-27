@@ -1,7 +1,7 @@
 
 const Button = (props) => {
     return (
-        <button type="button" className="btn btn-primary hover:bg-bookmark-white hover:text-black">{props.children}</button>
+        <button type="button" className="btn btn-primary hover:shadow-xl hover:brightness-105">{props.children}</button>
     );
 }
 
