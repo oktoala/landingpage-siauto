@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import UnmulIcon from './icons/logo.svg';
 import ImageLaptop from './icons/imageLaptop.svg';
+import ImgFitur1 from './icons/fitur1.svg';
+import ImgFitur2 from './icons/fitur2.svg';
 import Button from './components/Button';
 import './App.css';
 import HeroImage from './components/HeroImage';
@@ -29,6 +31,11 @@ const Header = () => {
         </a>
         <ul className="hidden sm:flex flex-1 justify-end 
         items-center gap-12 text-bookmark-blue uppercase text-xs">
+          <li className="cursor-pointer">
+            <a href="#download">
+              Download
+            </a>
+          </li>
           <li className="cursor-pointer">
             <a href="#features">
               Features
@@ -60,10 +67,10 @@ const Hero = () => {
             Isi kuesioner kalian secara otomatis
           </p>
           <div className="flex justify-center items-center flex-wrap gap-6">
-            <a href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop.0.2.0.exe" >
+            <a title="Download Untuk Windows" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop.0.2.0.exe" >
               <Button>Download untuk <i className="px-1 fab fa-windows"></i> </Button>
             </a>
-            <a href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop-0.2.0.AppImage" >
+            <a title="Download Untuk Linux" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop-0.2.0.AppImage" >
               <Button>Download untuk <i className="px-1 fab fa-linux"></i></Button>
             </a>
             <p className="text-bookmark-grey">
@@ -87,14 +94,13 @@ const Feature = () => {
           Aplikasi ini menyediakan beberapa fitur yang akan membantu hidup anda
         </p>
       </div>
-      <FeatureSection dir="left" nameFeature="Pilih Nilai Kalian" shape={<RoundedShapeLeft />} class="lg:mt-24">
-
+      <FeatureSection icon={ImgFitur1} dir="left" nameFeature="Pilih Nilai Kalian" shape={<RoundedShapeLeft />} class="lg:mt-24">
+        Nilai-nilai yang kalian pilih akan dirandom saat pengisian jawaban di kuesioner.
       </FeatureSection>
-      <FeatureSection dir="right" nameFeature="Pilih Semester Kalian" shape={<RoundedShapeRight />} class="lg:mt-56" >
-
+      <FeatureSection icon={ImgFitur2}  dir="right" nameFeature="Coba aja dulu" shape={<RoundedShapeRight />} class="lg:mt-56" >
+        Tidak perlu langsung mengisi semua kuesioner yang ada, cukup satu aja dulu.
       </FeatureSection>
-      <FeatureSection dir="left" nameFeature="Coba Aja Dulu" shape={<RoundedShapeLeft />} class="lg:mt-56" />
-      <FeatureSection dir="right" shape={<RoundedShapeRight />} class="lg:mt-56" />
+    
     </section>
   );
 }
@@ -102,19 +108,15 @@ const Feature = () => {
 const accordionItem = [
   {
     'header': 'Apakah SIAuto menyimpan password?',
-    'content': 'Tidak, karena aplikasinya portable (tidak perlu diinstall) jadi tidak akan ada data yang tersimpan.'
+    'content': 'Tidak. Karena aplikasinya portable (tidak perlu diinstall) jadi tidak akan ada data yang tersimpan.'
+  },
+  {
+    'header': 'Apakah SIAuto bisa mengisi saran?',
+    'content': 'Tidak. Karena kuesioner akan diisi secara random, saran yang diberikan tidak akan tepat sasaran. Default saran yang diberikan adalah emoji ✌️'
   },
   {
     'header': 'Aplikasi gagal untuk mengisi kuesioner terus menerus',
     'content': 'Untuk Pengguna Windows, pastikan kalian sudah menginstall Google Chrome atau Microsoft Edge dan untuk pengguna Linux, install Google Chrome atau Brave Browser'
-  },
-  {
-    'header': '',
-    'content': 'hehehheh'
-  },
-  {
-    'header': 'Haha',
-    'content': 'hehehheh'
   },
 ]
 
@@ -164,20 +166,18 @@ const FAQ = () => {
   );
 }
 
-
-
 const Footer = () => {
   return (
     <footer className="bg-bookmark-blue py-16">
       <div className="container flex flex-col md:flex-row items-center">
         <div className="flex flex-1 flex-wrap items-center justify-center md:justify-start gap-12">
-          <div className="text-white uppercase">
-            &#169; SIAuto
+          <div className="text-white ">
+            &#169; All Rights Reserved
           </div>
         </div>
         <ul className="flex gap-10 mt-12 md:mt-0">
           <li>
-            <a href="https://github.com/oktoala/siauto-desktop">
+            <a target="_blank"  rel="noreferrer" href="https://github.com/oktoala/siauto-desktop">
               <i className="text-white text-2xl fab fa-github"></i>
             </a>
           </li>

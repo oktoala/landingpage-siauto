@@ -18,9 +18,9 @@ export const RoundedShapeLeft = () => {
             bg-bookmark-primary
             rounded-r-full
             absolute
-            h-80
+            h-64
             w-2/4
-            -bottom-24
+            -bottom-14
             -left-32
           "
     ></div>
@@ -32,7 +32,7 @@ export const RoundedShapeRight = () => {
     <div
       className="overflow-hidden hidden lg:block bg-bookmark-primary rounded-l-full
             absolute
-            h-80
+            h-64
             w-2/4
             -bottom-12
             -right-36
