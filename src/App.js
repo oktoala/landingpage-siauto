@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UnmulIcon from './icons/logo.svg';
 import ImageLaptop from './icons/imageLaptop.svg';
 import ImgFitur1 from './icons/fitur1.svg';
 import ImgFitur2 from './icons/fitur2.svg';
 import Button from './components/Button';
-import './App.css';
 import HeroImage from './components/HeroImage';
 import FeatureSection from './components/FeatureSection';
 import RoundedShape, { RoundedShapeLeft, RoundedShapeRight } from './components/RoundedShape';
+import axios from 'axios';
 
 const App = () => {
   return (
@@ -22,12 +22,28 @@ const App = () => {
 }
 
 const Header = () => {
+  const [data, setData] = useState(0);
+
+  useEffect(() => {
+    let i = 0;
+    axios.get('https://api.github.com/repos/oktoala/siauto-desktop/releases')
+      .then((response) => {
+        response.data.forEach(e => {
+          e.assets.forEach(ee => {
+            i += ee.download_count;
+            console.log(`i = ${i}`);
+            setData(i);
+          });
+        });
+      })
+      .catch(e => console.log(e));
+  }, []);
   return (
     <header className="sticky z-20 top-0 bg-white">
       <nav className="container  flex items-center py-4 mt-4 sm:mt-12">
         <a href="/" className="py-1 flex items-center">
           <img src={UnmulIcon} alt="Gambar" />
-          <div className="mx-3 text-xl font-bold text-bookmark-blue">SIAuto</div>
+          <div title={`Download: ${data}`} className="mx-3 text-xl font-bold text-bookmark-blue">SIAuto</div>
         </a>
         <ul className="hidden sm:flex flex-1 justify-end 
         items-center gap-12 text-bookmark-blue uppercase text-xs">
@@ -66,17 +82,22 @@ const Hero = () => {
           <p className="text-bookmark-grey text-lg text-center lg:text-left mb-6">
             Isi kuesioner kalian secara otomatis
           </p>
-          <div className="flex justify-center items-center flex-wrap gap-6">
-            <a title="Download Untuk Windows" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop.0.2.0.exe" >
-              <Button>Download untuk <i className="px-1 fab fa-windows"></i> </Button>
+          <div className="w-full grid gap-2 grid-cols-2 items-center justify-center">
+            <a title="Download Untuk Windows" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop.0.2.1.exe" >
+              <Button>Download Untuk <i className="px-1 fab fa-windows"></i> </Button>
             </a>
             <a title="Download Untuk Linux" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop-0.2.0.AppImage" >
-              <Button>Download untuk <i className="px-1 fab fa-linux"></i></Button>
+              <Button>Download Untuk <i className="px-1 fab fa-linux"></i></Button>
             </a>
-            <p className="text-bookmark-grey">
-              {navigator.userAgent.indexOf("Chrome") !== -1 ? "" : "*Install Chromium-Based Browser"}
-            </p>
+            {/* <a title="Download Untuk Mac" href="#" >
+              <Button><i className="px-1 fab fa-apple"></i> Coming Soon</Button>
+            </a> */}
           </div>
+          {!navigator.userAgent.indexOf("Chrome") &&
+            <p className="text-bookmark-grey">
+              *Install Chromium-Based Browser
+            </p>
+          }
         </div>
         <HeroImage src={ImageLaptop} />
         <RoundedShape />
@@ -97,10 +118,10 @@ const Feature = () => {
       <FeatureSection icon={ImgFitur1} dir="left" nameFeature="Pilih Nilai Kalian" shape={<RoundedShapeLeft />} class="lg:mt-24">
         Nilai-nilai yang kalian pilih akan dirandom saat pengisian jawaban di kuesioner.
       </FeatureSection>
-      <FeatureSection icon={ImgFitur2}  dir="right" nameFeature="Coba aja dulu" shape={<RoundedShapeRight />} class="lg:mt-56" >
+      <FeatureSection icon={ImgFitur2} dir="right" nameFeature="Coba aja dulu" shape={<RoundedShapeRight />} class="lg:mt-56" >
         Tidak perlu langsung mengisi semua kuesioner yang ada, cukup satu aja dulu.
       </FeatureSection>
-    
+
     </section>
   );
 }
@@ -115,8 +136,12 @@ const accordionItem = [
     'content': 'Tidak. Karena kuesioner akan diisi secara random, saran yang diberikan tidak akan tepat sasaran. Default saran yang diberikan adalah emoji ✌️'
   },
   {
-    'header': 'Aplikasi gagal untuk mengisi kuesioner terus menerus',
-    'content': 'Untuk Pengguna Windows, pastikan kalian sudah menginstall Google Chrome atau Microsoft Edge dan untuk pengguna Linux, install Google Chrome atau Brave Browser'
+    'header': 'Bagaimana fitur dosen favorit berkerja?',
+    'content': 'Selama nama yang diketikkan terdapat di dalam nama dosennya, maka dosen tersebut akan diisi kuesionernya. Misal Astriana dan user mengetikkan "Ast", maka akan bernilai true.'
+  },
+  {
+    'header': 'Untuk apa ada fitur browser?',
+    'content': 'Itu hanya untuk memastikan jika di PC/Laptop kalian terdapat browser yang dibutuhkan. Karena program sebenarnya hanya menjalankan browser di latar belakang. Jika browser tidak ditemukan, install salah satu dari 3 browser, yaitu Google Chrome, Microsoft Edge, atau Brave Browser'
   },
 ]
 
@@ -177,7 +202,7 @@ const Footer = () => {
         </div>
         <ul className="flex gap-10 mt-12 md:mt-0">
           <li>
-            <a target="_blank"  rel="noreferrer" href="https://github.com/oktoala/siauto-desktop">
+            <a target="_blank" rel="noreferrer" href="https://github.com/oktoala/siauto-desktop">
               <i className="text-white text-2xl fab fa-github"></i>
             </a>
           </li>
