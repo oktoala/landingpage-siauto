@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import UnmulIcon from './icons/logo.svg';
-import ImageLaptop from './icons/imageLaptop.svg';
-import ImgFitur1 from './icons/fitur1.svg';
-import ImgFitur2 from './icons/fitur2.svg';
+import ImageLaptop from './icons/hero.png';
+import ImgFitur1 from './icons/fitur1.png';
+import ImgFitur2 from './icons/fitur2.png';
 import Button from './components/Button';
 import HeroImage from './components/HeroImage';
 import FeatureSection from './components/FeatureSection';
@@ -86,12 +86,12 @@ const Hero = () => {
             <a title="Download Untuk Windows" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop.0.2.1.exe" >
               <Button>Download Untuk <i className="px-1 fab fa-windows"></i> </Button>
             </a>
-            <a title="Download Untuk Linux" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop-0.2.0.AppImage" >
+            <a title="Download Untuk Linux" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.3.0/SIAutoDesktop-0.3.0.AppImage">
               <Button>Download Untuk <i className="px-1 fab fa-linux"></i></Button>
             </a>
-            {/* <a title="Download Untuk Mac" href="#" >
-              <Button><i className="px-1 fab fa-apple"></i> Coming Soon</Button>
-            </a> */}
+            <a title="Download Untuk Mac M1" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.3.0/SIAutoDesktop-0.3.0.dmg" >
+              <Button>Download Untuk <i className="px-1 fab fa-apple"></i> M1 </Button>
+            </a>
           </div>
           {!navigator.userAgent.indexOf("Chrome") &&
             <p className="text-bookmark-grey">
@@ -115,11 +115,11 @@ const Feature = () => {
           Aplikasi ini menyediakan beberapa fitur yang akan membantu hidup anda
         </p>
       </div>
-      <FeatureSection icon={ImgFitur1} dir="left" nameFeature="Pilih Nilai Kalian" shape={<RoundedShapeLeft />} class="lg:mt-24">
-        Nilai-nilai yang kalian pilih akan dirandom saat pengisian jawaban di kuesioner.
+      <FeatureSection icon={ImgFitur1} dir="left" nameFeature="Simple To Use" shape={<RoundedShapeLeft />} class="lg:mt-24">
+        Cukup isi NIM dan Password dan kuesioner KHS kalian auto terisi.
       </FeatureSection>
-      <FeatureSection icon={ImgFitur2} dir="right" nameFeature="Coba aja dulu" shape={<RoundedShapeRight />} class="lg:mt-56" >
-        Tidak perlu langsung mengisi semua kuesioner yang ada, cukup satu aja dulu.
+      <FeatureSection icon={ImgFitur2} dir="right" nameFeature="Preference Yourself" shape={<RoundedShapeRight />} class="lg:mt-56" >
+        Dilengkapi preferensi untuk kalian yang gak terlalu mageran.
       </FeatureSection>
 
     </section>
@@ -127,6 +127,10 @@ const Feature = () => {
 }
 
 const accordionItem = [
+  {
+    'header': 'Gimana isi nilainya kuesionernya?',
+    'content': 'Secara default aplikasi akan mengisi random antara angka 3, 4, atau 5. Jika kalian hanya mencentang 3 dan 5 di preferensi, maka aplikasi hanya akan mengisi nilai random antara 3 atau 5.'
+  },
   {
     'header': 'Apakah SIAuto menyimpan password?',
     'content': 'Tidak. Karena aplikasinya portable (tidak perlu diinstall) jadi tidak akan ada data yang tersimpan.'
