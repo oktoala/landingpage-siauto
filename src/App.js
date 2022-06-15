@@ -118,7 +118,7 @@ const Feature = () => {
       <FeatureSection icon={ImgFitur1} dir="left" nameFeature="Simple To Use" shape={<RoundedShapeLeft />} class="lg:mt-24">
         Cukup isi NIM dan Password dan kuesioner KHS kalian auto terisi.
       </FeatureSection>
-      <FeatureSection icon={ImgFitur2} dir="right" nameFeature="Preference Yourself" shape={<RoundedShapeRight />} class="lg:mt-56" >
+      <FeatureSection icon={ImgFitur2} dir="right" nameFeature="Packed With Features" shape={<RoundedShapeRight />} class="lg:mt-56" >
         Dilengkapi preferensi untuk kalian yang gak terlalu mageran.
       </FeatureSection>
 
