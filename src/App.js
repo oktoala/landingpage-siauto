@@ -80,17 +80,17 @@ const Hero = () => {
             Untuk Kalian Yang Malas Isi Kuesioner
           </h1>
           <p className="text-bookmark-grey text-lg text-center lg:text-left mb-6">
-            Isi kuesioner kalian secara otomatis
+            Isi kuesioner KHS sia.unmul.ac.id kalian secara otomatis
           </p>
           <div className="w-full grid gap-2 grid-cols-2 items-center justify-center">
-            <a title="Download Untuk Windows" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.2.0/SIAutoDesktop.0.2.1.exe" >
+            <a title="Download Untuk Windows" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.3.0/SIAutoDesktop.0.3.0.exe" >
               <Button>Download Untuk <i className="px-1 fab fa-windows"></i> </Button>
             </a>
             <a title="Download Untuk Linux" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.3.0/SIAutoDesktop-0.3.0.AppImage">
               <Button>Download Untuk <i className="px-1 fab fa-linux"></i></Button>
             </a>
             <a title="Download Untuk Mac M1" href="https://github.com/oktoala/siauto-desktop/releases/download/v0.3.0/SIAutoDesktop-0.3.0.dmg" >
-              <Button>Download Untuk <i className="px-1 fab fa-apple"></i> M1 </Button>
+              <Button>Download Untuk <i className="px-1 fab fa-apple"></i> M1</Button>
             </a>
           </div>
           {!navigator.userAgent.indexOf("Chrome") &&
@@ -147,6 +147,10 @@ const accordionItem = [
     'header': 'Untuk apa ada fitur browser?',
     'content': 'Itu hanya untuk memastikan jika di PC/Laptop kalian terdapat browser yang dibutuhkan. Karena program sebenarnya hanya menjalankan browser di latar belakang. Jika browser tidak ditemukan, install salah satu dari 3 browser, yaitu Google Chrome, Microsoft Edge, atau Brave Browser'
   },
+  {
+    'header': 'Kuesioner Tidak Terisi?',
+    'content': 'Bisa jadi jaringan kalian bermasalah atau SIA nya lagi error.'
+  }
 ]
 
 const FAQ = () => {
